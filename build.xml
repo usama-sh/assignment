@@ -1,5 +1,6 @@
-<project name="Greeting" default="compile">
-   <target name="compile">
-      <javac srcdir="." includeantruntime="false"/>
-   </target>
+<project name="MyProject" default="compile">
+  <target name="compile">
+    <mkdir dir="build"/>
+    <javac srcdir="src" destdir="build"/>
+  </target>
 </project>
