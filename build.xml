@@ -1,6 +1,12 @@
-<project name="MyProject" default="compile">
-  <target name="compile">
-    <mkdir dir="build"/>
-    <javac srcdir="src" destdir="build"/>
-  </target>
+<project name="MyProject" default="run">
+
+    <target name="compile">
+        <mkdir dir="build"/>
+        <javac srcdir="src" destdir="build"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="Greeting" classpath="build"/>
+    </target>
+
 </project>
