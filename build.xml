@@ -1,12 +1,26 @@
-<project name="MyProject" default="run">
+<project 
+         name="MyProject" default="run">
 
-    <target name="compile">
-        <mkdir dir="build"/>
-        <javac srcdir="src" destdir="build"/>
+    <target name="clean">
+        <delete dir="build"/>
     </target>
 
-    <target name="run" depends="compile">
-        <java classname="Greeting" classpath="build"/>
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes"/>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/Hello.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="mainpackage.Hello"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/Hello.jar" fork="true"/>
     </target>
 
 </project>
